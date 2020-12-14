@@ -31,9 +31,11 @@ public class Main {
         float[] arr2 = new float[HALF_SIZE];
         for (int i = 0; i < arr.length; i++) arr[i] = 1.0f;
 
-        long a = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         System.arraycopy(arr, 0, arr1, 0, HALF_SIZE);
         System.arraycopy(arr, HALF_SIZE, arr2, 0, HALF_SIZE);
+        long split = System.currentTimeMillis();
+        System.out.println(String.format("Время разделения массива: %s.", String.valueOf(split - start)));
 
         new Thread() {
             public void run() {
@@ -49,9 +51,11 @@ public class Main {
             }
         }.start();
 
+        long connect = System.currentTimeMillis();
         System.arraycopy(arr1, 0, arr, 0, HALF_SIZE);
         System.arraycopy(arr2, 0, arr, HALF_SIZE, HALF_SIZE);
-        System.out.println(String.format("Время выполнения метода 2: %s.", String.valueOf(System.currentTimeMillis() - a)));
+        System.out.println(String.format("Время склейки массива: %s.", String.valueOf(System.currentTimeMillis() - connect)));
+        System.out.println(String.format("Время выполнения метода 2: %s.", String.valueOf(System.currentTimeMillis() - start)));
     }
 
 
