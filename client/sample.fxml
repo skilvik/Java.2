@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="center" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lesson4.sample.client.Controller">
+    <TextArea fx:id="textArea" editable="false" prefHeight="181.0" prefWidth="471.0" VBox.vgrow="ALWAYS" />
+
+    <HBox prefHeight="28.0" prefWidth="471.0">
+        <TextField fx:id="textField" alignment="TOP_LEFT" onAction="#send" prefHeight="31.0" prefWidth="415.0" promptText="Print message..." HBox.hgrow="ALWAYS" />
+        <Button onAction="#send" prefHeight="44.0" prefWidth="56.0" text="Send" textAlignment="JUSTIFY" />
+
+    </HBox>
+
+</VBox>
